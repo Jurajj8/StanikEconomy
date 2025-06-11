@@ -8,27 +8,40 @@ export function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     setMounted(true)
+  }, [])
 
-    // Create media query list
+  useEffect(() => {
+    if (!mounted) return
+
     const mediaQuery = window.matchMedia(query)
 
     // Set initial value
     setMatches(mediaQuery.matches)
 
-    // Define callback
+    // Create event handler
     const handleChange = (event: MediaQueryListEvent) => {
       setMatches(event.matches)
     }
 
-    // Add listener for changes
-    mediaQuery.addEventListener("change", handleChange)
-
-    // Clean up
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange)
+    // Add listener
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange)
+    } else {
+      // Fallback for older browsers
+      mediaQuery.addListener(handleChange)
     }
-  }, [query])
 
-  // Return false on server, actual value on client
+    // Cleanup
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener("change", handleChange)
+      } else {
+        // Fallback for older browsers
+        mediaQuery.removeListener(handleChange)
+      }
+    }
+  }, [query, mounted])
+
+  // Return false during SSR and initial render
   return mounted ? matches : false
 }
