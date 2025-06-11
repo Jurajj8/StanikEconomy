@@ -35,10 +35,10 @@ export function AnimatedBackground() {
 
       {/* Animated gradient orbs - menej a menšie na mobilných zariadeniach */}
       <motion.div
-        className={`absolute top-1/4 left-1/4 ${isMobile ? "w-48 h-48" : "w-96 h-96"} rounded-full bg-gradient-to-r from-[#e2cfbe]/10 to-[#d4b99f]/10 blur-3xl`}
+        className={`absolute top-1/4 left-1/4 ${isMobile ? "w-32 h-32" : "w-96 h-96"} rounded-full bg-gradient-to-r from-[#e2cfbe]/10 to-[#d4b99f]/10 blur-3xl`}
         animate={{
-          x: [0, isMobile ? 20 : 50, 0],
-          y: [0, isMobile ? 15 : 30, 0],
+          x: [0, isMobile ? 15 : 50, 0],
+          y: [0, isMobile ? 10 : 30, 0],
           scale: [1, 1.1, 1],
         }}
         transition={{
@@ -66,10 +66,10 @@ export function AnimatedBackground() {
       )}
 
       <motion.div
-        className={`absolute top-1/3 right-1/3 ${isMobile ? "w-32 h-32" : "w-64 h-64"} rounded-full bg-gradient-to-r from-[#e2cfbe]/5 to-[#d4b99f]/5 blur-3xl`}
+        className={`absolute top-1/3 right-1/3 ${isMobile ? "w-24 h-24" : "w-64 h-64"} rounded-full bg-gradient-to-r from-[#e2cfbe]/5 to-[#d4b99f]/5 blur-3xl`}
         animate={{
-          x: [0, isMobile ? 30 : 60, 0],
-          y: [0, isMobile ? -15 : -30, 0],
+          x: [0, isMobile ? 20 : 60, 0],
+          y: [0, isMobile ? -10 : -30, 0],
           scale: [1, 1.15, 1],
         }}
         transition={{

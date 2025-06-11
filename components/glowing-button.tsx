@@ -15,7 +15,7 @@ interface GlowingButtonProps {
 
 export function GlowingButton({ href, children, primary, light, transparent, className = "" }: GlowingButtonProps) {
   let buttonClasses =
-    "relative px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center group overflow-hidden"
+    "relative px-4 py-2.5 sm:px-6 sm:py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center group overflow-hidden text-sm sm:text-base"
 
   if (primary) {
     buttonClasses += " bg-[#e2cfbe] text-gray-800 hover:bg-[#d4b99f]"
