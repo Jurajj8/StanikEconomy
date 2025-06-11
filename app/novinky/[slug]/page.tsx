@@ -122,6 +122,10 @@ const articles: Article[] = [
   },
 ]
 
+export async function generateStaticParams() {
+  return articles.map(article => ({ slug: article.id }));
+}
+
 export default function ArticlePage() {
   const params = useParams()
   const slug = params.slug as string
