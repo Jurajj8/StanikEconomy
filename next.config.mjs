@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,6 +10,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: true,
     domains: ['images.unsplash.com'],
     remotePatterns: [
       {
@@ -16,7 +19,6 @@ const nextConfig = {
         pathname: '**',
       },
     ],
-    unoptimized: true,
   },
   // Ensure proper handling of SVG files
   webpack(config) {
