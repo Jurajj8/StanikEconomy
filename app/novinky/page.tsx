@@ -139,7 +139,7 @@ export default function Novinky() {
       {/* Header Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Pozadie s efektmi */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe]/20 via-white to-[#e2cfbe]/10"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe]/20 via-white to-[#e2cfbe]/10"></div> */}
 
         {/* Dekoratívne prvky */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#e2cfbe]/20 rounded-full blur-3xl"></div>
@@ -170,7 +170,7 @@ export default function Novinky() {
             className="text-center max-w-3xl mx-auto"
           >
             <div className="inline-block relative mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe] to-[#d4b99f] blur-xl opacity-30 rounded-full transform scale-150"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe] to-[#d4b99f] blur-xl opacity-30 rounded-full transform scale-150"></div> */}
               <div className="relative bg-white/50 backdrop-blur-sm p-4 rounded-full border border-[#e2cfbe]/30 shadow-lg">
                 <FileText className="w-16 h-16 text-[#e2cfbe] mx-auto" />
               </div>

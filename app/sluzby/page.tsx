@@ -265,7 +265,7 @@ export default function Sluzby() {
               className="text-5xl md:text-7xl font-bold mb-6"
             >
               <span className="relative">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-800 via-[#e2cfbe] to-gray-800">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-800  to-gray-800">
                   Komplexné riešenia
                 </span>
                 <motion.span

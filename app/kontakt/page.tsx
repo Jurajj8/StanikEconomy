@@ -98,7 +98,7 @@ export default function Kontakt() {
             className="text-center max-w-3xl mx-auto"
           >
             <div className="inline-block relative mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe] to-[#d4b99f] blur-xl opacity-30 rounded-full transform scale-150"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-[#e2cfbe] to-[#d4b99f] blur-xl opacity-30 rounded-full transform scale-150"></div> */}
               <div className="relative bg-white/50 backdrop-blur-sm p-4 rounded-full border border-[#e2cfbe]/30 shadow-lg">
                 <Mail className="w-16 h-16 text-[#e2cfbe] mx-auto" />
               </div>

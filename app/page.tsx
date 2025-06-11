@@ -17,8 +17,6 @@ import {
   Sparkles,
   LineChart,
   Briefcase,
-  Menu,
-  X,
 } from "lucide-react"
 import { AnimatedBackground } from "@/components/animated-background"
 import { useRef, useState, useEffect } from "react"
@@ -267,7 +265,6 @@ export default function Home() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1])
 
   const [activeTab, setActiveTab] = useState(0)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   const services = [
@@ -428,91 +425,14 @@ export default function Home() {
     },
   ]
 
-  // Mobile menu toggle
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
-    if (!mobileMenuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
-  }
-
-  // Close mobile menu when screen size changes
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768 && mobileMenuOpen) {
-        setMobileMenuOpen(false)
-        document.body.style.overflow = "auto"
-      }
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => {
-      window.removeEventListener("resize", handleResize)
-      document.body.style.overflow = "auto"
-    }
-  }, [mobileMenuOpen])
-
   return (
     <>
       {/* Animované pozadie */}
       <AnimatedBackground />
       <FloatingElements />
 
-      {/* Mobile Menu Button */}
-      <div className="fixed top-4 right-4 z-50 md:hidden">
-        <button
-          onClick={toggleMobileMenu}
-          className="bg-white p-2 rounded-full shadow-lg"
-          aria-label={mobileMenuOpen ? "Zavrieť menu" : "Otvoriť menu"}
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25 }}
-            className="fixed inset-0 bg-white z-40 flex flex-col p-6 pt-16"
-          >
-            <div className="flex flex-col space-y-6 text-xl">
-              <Link href="/" className="font-bold text-2xl text-[#e2cfbe] mb-6">
-                Stanik <span className="text-gray-800">Economy</span>
-              </Link>
-              <Link href="/" className="border-b border-gray-100 pb-2" onClick={toggleMobileMenu}>
-                Domov
-              </Link>
-              <Link href="/sluzby" className="border-b border-gray-100 pb-2" onClick={toggleMobileMenu}>
-                Služby
-              </Link>
-              <Link href="/novinky" className="border-b border-gray-100 pb-2" onClick={toggleMobileMenu}>
-                Novinky
-              </Link>
-              <Link href="/kontakt" className="border-b border-gray-100 pb-2" onClick={toggleMobileMenu}>
-                Kontakt
-              </Link>
-            </div>
-            <div className="mt-auto">
-              <Link
-                href="/kontakt"
-                className="w-full bg-[#e2cfbe] text-gray-800 py-3 px-6 rounded-md font-medium text-center block"
-                onClick={toggleMobileMenu}
-              >
-                Kontaktujte nás
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-16 md:pt-0">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/70 backdrop-blur-sm z-0"></div>
 
         {/* Glow effects */}
