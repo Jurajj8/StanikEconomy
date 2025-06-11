@@ -1,13 +1,9 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { useParams } from "next/navigation"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { format } from "date-fns"
-import { sk } from "date-fns/locale"
-import { Calendar, Clock, User, ArrowLeft, Share2, Printer, Facebook, Twitter, Linkedin } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { format } from "date-fns";
+import { sk } from "date-fns/locale";
+import { Calendar, Clock, User, ArrowLeft, Share2, Printer, Facebook, Twitter, Linkedin } from "lucide-react";
 
 // Definícia typov pre článok
 interface Article {
@@ -126,47 +122,19 @@ export async function generateStaticParams() {
   return articles.map(article => ({ slug: article.id }));
 }
 
-export default function ArticlePage() {
-  const params = useParams()
-  const slug = params.slug as string
-  const [article, setArticle] = useState<Article | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    // Simulácia načítania článku z "databázy"
-    const foundArticle = articles.find((a) => a.id === slug)
-    setArticle(foundArticle || null)
-    setLoading(false)
-  }, [slug])
-
-  if (loading) {
-    return (
-      <div className="container py-20 text-center">
-        <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-1/4 mx-auto mb-12"></div>
-          <div className="h-96 bg-gray-200 rounded mb-8"></div>
-          <div className="h-4 bg-gray-200 rounded mb-2"></div>
-          <div className="h-4 bg-gray-200 rounded mb-2"></div>
-          <div className="h-4 bg-gray-200 rounded mb-2"></div>
-          <div className="h-4 bg-gray-200 rounded mb-2"></div>
-        </div>
-      </div>
-    )
-  }
+export default function ArticlePage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
+  const article = articles.find((a) => a.id === slug);
 
   if (!article) {
     return (
       <div className="container py-20 text-center">
         <h1 className="text-3xl font-bold mb-4">Článok nenájdený</h1>
         <p className="mb-8">Ľutujeme, požadovaný článok neexistuje.</p>
-        <Link href="/novinky" className="btn btn-primary">
-          Späť na novinky
-        </Link>
+        <Link href="/novinky" className="btn btn-primary">Späť na novinky</Link>
       </div>
-    )
+    );
   }
-
   return (
     <>
       {/* Header */}
