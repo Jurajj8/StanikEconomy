@@ -455,8 +455,8 @@ export default function Home() {
               className="px-4 sm:px-0"
             >
               <div className="relative">
-                <div className="absolute -top-10 -left-10 w-20 h-20 bg-[#e2cfbe]/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#e2cfbe]/30 rounded-full blur-xl"></div>
+                <div className="absolute -top-10 -left-10 w-20 h-20  rounded-full blur-xl"></div>
+                <div className="absolute -bottom-10 -right-10 w-32 h-32  rounded-full blur-xl"></div>
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-gray-800 relative">
                   Stanik Economy
                   <span className="block text-xl md:text-3xl mt-2 font-normal bg-gradient-to-r from-[#e2cfbe] to-[#c3b09e] bg-clip-text text-transparent">
